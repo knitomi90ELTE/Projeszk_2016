@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.panemu.tiwulfx.table.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.gui.admin.AdminController">
+    <children>
+        <TableControl fx:id="tableControl" prefHeight="600.0" prefWidth="800.0" >
+            <columns>
+                <NumberColumn numberType="java.lang.Integer" prefWidth="100.0" propertyName="id" text="id" />
+                <TextColumn prefWidth="350.0" propertyName="name" text="Név" />
+                <TextColumn prefWidth="350.0" propertyName="email" text="Email" />
+            </columns>
+        </TableControl>
+    </children>
+</AnchorPane>
