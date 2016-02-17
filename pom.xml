@@ -45,13 +45,9 @@
             <artifactId>eclipselink</artifactId>
             <version>2.5.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.0.0</version>
-            <scope>compile</scope>
-        </dependency>
+
     </dependencies>
+    
     
     <build>
         <plugins>
@@ -119,8 +115,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArguments>
                         <bootclasspath>${sun.boot.class.path}${path.separator}${java.home}/lib/jfxrt.jar</bootclasspath>
                     </compilerArguments>

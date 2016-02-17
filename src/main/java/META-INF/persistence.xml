@@ -15,10 +15,10 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>hu.elte.projeszk.fxjpacrud.entity.UserEntity</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://79.172.211.138:3306/kniznera_projeszk?zeroDateTimeBehavior=convertToNull"/>
-      <property name="javax.persistence.jdbc.user" value="kniznera_proj"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="projekt_eszkozok_2016"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>

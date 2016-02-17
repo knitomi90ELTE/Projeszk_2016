@@ -42,11 +42,11 @@ public class LoginController implements Initializable {
     
     private Stage loginStage;
     
-    private final LoginQuery query = new LoginQuery();
+    private LoginQuery query;
 
     public LoginController() {
         try{
-            
+            query = new LoginQuery();
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource(
                             "/gui/Login.fxml"
