@@ -6,6 +6,7 @@
 package hu.elte.projeszk.fxjpacrud;
 
 
+import hu.elte.projeszk.fxjpacrud.gui.LoginController;
 import hu.elte.projeszk.fxjpacrud.helper.ChangeContent;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -33,9 +34,10 @@ public class LoginFX extends Application {
     
     @Override
     public void start(Stage stage) {
-        changeContent = new ChangeContent(instance, stage);
-        changeContent.replaceSceneContent("gui/login/Login.fxml");
-        stage.show();
+        /*changeContent = new ChangeContent(instance, stage);
+        changeContent.replaceSceneContent("hu/elte/projeszk/fxjpacrud/gui/Login.fxml");
+        stage.show();*/
+        LoginController loginController = new LoginController();
     }
     
     /**

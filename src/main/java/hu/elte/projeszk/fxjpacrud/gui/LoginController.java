@@ -17,11 +17,15 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
 
 /**
  *
@@ -35,9 +39,33 @@ public class LoginController implements Initializable {
     private PasswordField password;
     @FXML
     private Label message;
-
+    
+    private Stage loginStage;
+    
     private final LoginQuery query = new LoginQuery();
 
+    public LoginController() {
+        try{
+            
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/gui/Login.fxml"
+                    )
+            );
+            
+            loader.setController(this);
+            loginStage = new Stage();
+            loginStage.setScene(new Scene((Pane) loader.load()));
+            loginStage.show();
+            
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -75,11 +103,11 @@ public class LoginController implements Initializable {
     }
 
     private void changeToAdminAction() {
-        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/admin/Admin.fxml");
+        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Admin.fxml");
     }
 
     public void changeToRegAction(ActionEvent event) {
-        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/reg/Reg.fxml");
+        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Reg.fxml");
     }
 
 }

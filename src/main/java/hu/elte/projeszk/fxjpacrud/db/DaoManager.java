@@ -2,8 +2,6 @@ package hu.elte.projeszk.fxjpacrud.db;
 
 import hu.elte.projeszk.fxjpacrud.entity.UserEntity;
 
-
-
 public class DaoManager {
 
     private GenericDao<UserEntity> userDao;

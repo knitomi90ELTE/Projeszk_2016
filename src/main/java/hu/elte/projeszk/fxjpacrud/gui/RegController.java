@@ -50,7 +50,7 @@ public class RegController implements Initializable {
     }
 
     public void backToLogin(ActionEvent event) {
-        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/login/Login.fxml");
+        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Login.fxml");
     }
 
     public void regAction(ActionEvent event) {
@@ -83,7 +83,7 @@ public class RegController implements Initializable {
             String pwd = PasswordHash.createHash(pwd1Field.getText());
             u.setPassword(pwd);
             r.addUser(u);
-            LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/admin/Admin.fxml");
+            LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Admin.fxml");
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
