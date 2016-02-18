@@ -19,6 +19,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -45,18 +47,40 @@ public class LoginController implements Initializable {
     private LoginQuery query;
 
     public LoginController() {
+    }
+    
+    
+    
+    public LoginController(Stage stage) {
         try{
-            query = new LoginQuery();
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource(
-                            "/gui/Login.fxml"
-                    )
-            );
-            
-            loader.setController(this);
             loginStage = new Stage();
-            loginStage.setScene(new Scene((Pane) loader.load()));
+            query = new LoginQuery();
+            /*FXMLLoader loader = new FXMLLoader(
+                    LoginFX.getInstance().getClass().getResource(
+                            "/view/Login.fxml"
+                    )
+            );*/
+            //Parent page = (Parent) FXMLLoader.load(LoginFX.getInstance().getClass().getResource("/view/Login.fxml"), null, new JavaFXBuilderFactory());
+            
+            FXMLLoader loader = new FXMLLoader(LoginFX.getInstance().getClass().getResource("/view/Login.fxml"));
+            
+            //loader.setController(this);
+            //loginStage = new Stage();
+            //Scene s = new Scene(loader.load());
+            //loginStage.setScene();
+            //loginStage.show();
+            //stage.setScene(new Scene((Pane) loader.load()));
+            //stage.show();
+            Scene scene = loginStage.getScene();
+            if (scene == null) {
+                scene = new Scene(loader.load());
+                loginStage.setScene(scene);
+            } else {
+                loginStage.getScene().setRoot(loader.load());
+            }
             loginStage.show();
+            loginStage.sizeToScene();
+            
             
         } catch(Exception e){
             e.printStackTrace();
