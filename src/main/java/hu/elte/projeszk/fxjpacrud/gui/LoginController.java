@@ -106,13 +106,11 @@ public class LoginController implements Initializable {
     }
 
     private void changeToAdminAction() {
-        //LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Admin.fxml");
-        //AdminController adminController = new AdminController();
+        LoginFX.getInstance().getChangeContent().replaceSceneContent("/view/Admin.fxml");
     }
 
     public void changeToRegAction(ActionEvent event) {
-        //RegController regController = new RegController();
-        //regController.loadRegScene();
+        LoginFX.getInstance().getChangeContent().replaceSceneContent("/view/Reg.fxml");
     }
 
 }

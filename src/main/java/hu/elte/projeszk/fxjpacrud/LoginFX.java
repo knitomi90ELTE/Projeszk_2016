@@ -36,6 +36,7 @@ public class LoginFX extends Application {
     public void start(Stage stage) {
         changeContent = new ChangeContent(instance, stage);
         changeContent.replaceSceneContent("/view/Login.fxml");
+        stage.show();
     }
     
     /**

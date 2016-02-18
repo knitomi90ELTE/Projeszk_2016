@@ -51,26 +51,6 @@ public class RegController implements Initializable {
         query = new RegQuery();
 
     }
-
-    public void loadRegScene() {
-        FXMLLoader loader = new FXMLLoader(LoginFX.getInstance().getClass().getResource("/view/Reg.fxml"));
-        Stage regStage = new Stage();
-        Scene scene = regStage.getScene();
-        try {
-            if (scene == null) {
-                scene = new Scene(loader.load());
-                regStage.setScene(scene);
-            } else {
-                regStage.getScene().setRoot(loader.load());
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
-        regStage.show();
-        regStage.sizeToScene();
-    }
-    
     
     /**
      * Initializes the controller class.
@@ -81,8 +61,7 @@ public class RegController implements Initializable {
     }
 
     public void backToLogin(ActionEvent event) {
-        LoginController loginController = new LoginController();
-        loginController.loadLoginScene();
+        LoginFX.getInstance().getChangeContent().replaceSceneContent("/view/Login.fxml");
     }
 
     public void regAction(ActionEvent event) {
@@ -115,7 +94,7 @@ public class RegController implements Initializable {
             String pwd = PasswordHash.createHash(pwd1Field.getText());
             u.setPassword(pwd);
             r.addUser(u);
-            LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Admin.fxml");
+            LoginFX.getInstance().getChangeContent().replaceSceneContent("/view/Admin.fxml");
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }

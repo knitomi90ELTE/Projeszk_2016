@@ -31,9 +31,15 @@ public class AdminController extends TableController<UserEntity> implements Init
     @FXML
     private TableControl<UserEntity> tableControl;
     private GenericDao<UserEntity> userDao = DaoManager.getInstance().getUserDao();
+
+    public AdminController() {
+    }
     /**
      * Initializes the controller class.
      */
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initTable();
