@@ -5,7 +5,6 @@
  */
 package hu.elte.projeszk.fxjpacrud.db;
 
-
 import hu.elte.projeszk.fxjpacrud.entity.PersistentEntity;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -17,6 +16,7 @@ import javax.persistence.criteria.CriteriaQuery;
 /**
  *
  * @author capri
+ * @param <T>
  */
 public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
 
@@ -67,7 +67,7 @@ public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
     protected EntityManager getEntityManager() {
         return EMF.createEntityManager();
     }
-    
+
     protected List<T> findEntities(boolean all, int firstResult, int maxResult) {
         EntityManager entityManager = getEntityManager();
         CriteriaQuery criteriaQuery = entityManager.getCriteriaBuilder().createQuery();
@@ -79,7 +79,5 @@ public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
         }
         return query.getResultList();
     }
-    
-    
 
 }

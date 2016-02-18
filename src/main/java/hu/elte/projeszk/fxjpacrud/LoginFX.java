@@ -34,10 +34,8 @@ public class LoginFX extends Application {
     
     @Override
     public void start(Stage stage) {
-        /*changeContent = new ChangeContent(instance, stage);
-        changeContent.replaceSceneContent("hu/elte/projeszk/fxjpacrud/gui/Login.fxml");
-        stage.show();*/
-        LoginController loginController = new LoginController(stage);
+        changeContent = new ChangeContent(instance, stage);
+        changeContent.replaceSceneContent("/view/Login.fxml");
     }
     
     /**

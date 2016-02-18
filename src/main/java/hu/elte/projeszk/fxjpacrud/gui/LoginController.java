@@ -5,7 +5,6 @@
  */
 package hu.elte.projeszk.fxjpacrud.gui;
 
-
 import hu.elte.projeszk.fxjpacrud.LoginFX;
 import hu.elte.projeszk.fxjpacrud.db.LoginQuery;
 import hu.elte.projeszk.fxjpacrud.entity.UserEntity;
@@ -41,55 +40,35 @@ public class LoginController implements Initializable {
     private PasswordField password;
     @FXML
     private Label message;
-    
-    private Stage loginStage;
-    
-    private LoginQuery query;
+
+    //private Stage loginStage;
+    private final LoginQuery query;
 
     public LoginController() {
+
+        query = new LoginQuery();
+
     }
-    
-    
-    
-    public LoginController(Stage stage) {
-        try{
-            loginStage = new Stage();
-            query = new LoginQuery();
-            /*FXMLLoader loader = new FXMLLoader(
-                    LoginFX.getInstance().getClass().getResource(
-                            "/view/Login.fxml"
-                    )
-            );*/
-            //Parent page = (Parent) FXMLLoader.load(LoginFX.getInstance().getClass().getResource("/view/Login.fxml"), null, new JavaFXBuilderFactory());
-            
-            FXMLLoader loader = new FXMLLoader(LoginFX.getInstance().getClass().getResource("/view/Login.fxml"));
-            
-            //loader.setController(this);
-            //loginStage = new Stage();
-            //Scene s = new Scene(loader.load());
-            //loginStage.setScene();
-            //loginStage.show();
-            //stage.setScene(new Scene((Pane) loader.load()));
-            //stage.show();
-            Scene scene = loginStage.getScene();
+
+    public void loadLoginScene() {
+        /*FXMLLoader loader = new FXMLLoader(LoginFX.getInstance().getClass().getResource("/view/Login.fxml"));
+        Stage loginStage = new Stage();
+        Scene scene = loginStage.getScene();
+        try {
             if (scene == null) {
                 scene = new Scene(loader.load());
                 loginStage.setScene(scene);
             } else {
                 loginStage.getScene().setRoot(loader.load());
             }
-            loginStage.show();
-            loginStage.sizeToScene();
-            
-            
-        } catch(Exception e){
+        }catch(Exception e){
             e.printStackTrace();
         }
+
+        loginStage.show();
+        loginStage.sizeToScene();*/
     }
-    
-    
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -127,11 +106,13 @@ public class LoginController implements Initializable {
     }
 
     private void changeToAdminAction() {
-        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Admin.fxml");
+        //LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Admin.fxml");
+        //AdminController adminController = new AdminController();
     }
 
     public void changeToRegAction(ActionEvent event) {
-        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Reg.fxml");
+        //RegController regController = new RegController();
+        //regController.loadRegScene();
     }
 
 }

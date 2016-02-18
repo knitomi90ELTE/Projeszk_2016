@@ -17,9 +17,12 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -40,7 +43,35 @@ public class RegController implements Initializable {
     TextField pwd2Field;
     @FXML
     Label message;
+    
+    private final RegQuery query;
+    
+    public RegController() {
 
+        query = new RegQuery();
+
+    }
+
+    public void loadRegScene() {
+        FXMLLoader loader = new FXMLLoader(LoginFX.getInstance().getClass().getResource("/view/Reg.fxml"));
+        Stage regStage = new Stage();
+        Scene scene = regStage.getScene();
+        try {
+            if (scene == null) {
+                scene = new Scene(loader.load());
+                regStage.setScene(scene);
+            } else {
+                regStage.getScene().setRoot(loader.load());
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        regStage.show();
+        regStage.sizeToScene();
+    }
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -50,7 +81,8 @@ public class RegController implements Initializable {
     }
 
     public void backToLogin(ActionEvent event) {
-        LoginFX.getInstance().getChangeContent().replaceSceneContent("gui/Login.fxml");
+        LoginController loginController = new LoginController();
+        loginController.loadLoginScene();
     }
 
     public void regAction(ActionEvent event) {
