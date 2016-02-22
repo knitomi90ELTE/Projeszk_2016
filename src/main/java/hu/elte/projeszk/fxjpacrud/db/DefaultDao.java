@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.elte.projeszk.fxjpacrud.db;
 
 import hu.elte.projeszk.fxjpacrud.entity.PersistentEntity;
@@ -13,14 +8,9 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
-/**
- *
- * @author capri
- * @param <T>
- */
 public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
 
-    private boolean isRemote = true;
+    private final boolean isRemote = true;
     protected Class<T> CLASS;
     protected EntityManagerFactory EMF;
 

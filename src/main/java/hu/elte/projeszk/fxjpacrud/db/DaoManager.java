@@ -12,7 +12,7 @@ public class DaoManager {
         }
         return userDao;
     }
-    
+
     private DaoManager() {
     }
 

@@ -1,14 +1,9 @@
 package hu.elte.projeszk.fxjpacrud.db;
 
-
 import hu.elte.projeszk.fxjpacrud.entity.PersistentEntity;
-import java.util.*;
+import java.util.List;
 
 
-/**
- *
- * @author bpzykn
- */
 public interface GenericDao<T extends PersistentEntity> {
 
     public void create(T entity);

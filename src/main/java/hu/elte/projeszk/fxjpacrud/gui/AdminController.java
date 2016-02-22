@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.elte.projeszk.fxjpacrud.gui;
-
 
 import com.panemu.tiwulfx.common.TableCriteria;
 import com.panemu.tiwulfx.common.TableData;
-
 import com.panemu.tiwulfx.table.TableControl;
 import com.panemu.tiwulfx.table.TableController;
 import hu.elte.projeszk.fxjpacrud.db.DaoManager;
@@ -21,11 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 
-/**
- * FXML Controller class
- *
- * @author capri
- */
 public class AdminController extends TableController<UserEntity> implements Initializable {
 
     @FXML
@@ -34,12 +22,7 @@ public class AdminController extends TableController<UserEntity> implements Init
 
     public AdminController() {
     }
-    /**
-     * Initializes the controller class.
-     */
-    
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initTable();
@@ -49,7 +32,6 @@ public class AdminController extends TableController<UserEntity> implements Init
         tableControl.setController(this);
         tableControl.setRecordClass(UserEntity.class);
         tableControl.reloadFirstPage();
-
     }
 
     @Override
@@ -57,17 +39,15 @@ public class AdminController extends TableController<UserEntity> implements Init
         List<UserEntity> listUser = userDao.findAll();
         return new TableData<>(listUser, false, listUser.size());
     }
-    
+
     @Override
     public void delete(List<UserEntity> records) {
         System.out.println(records.toString());
-        super.delete(records);       
+        super.delete(records);
         for (UserEntity record : records) {
             userDao.delete(userDao.findById(record.getId()));
         }
- 
+
     }
-    
-    
-    
+
 }

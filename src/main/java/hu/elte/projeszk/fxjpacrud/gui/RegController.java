@@ -1,36 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.elte.projeszk.fxjpacrud.gui;
-
 
 import hu.elte.projeszk.fxjpacrud.LoginFX;
 import hu.elte.projeszk.fxjpacrud.db.RegQuery;
 import hu.elte.projeszk.fxjpacrud.entity.UserEntity;
 import hu.elte.projeszk.fxjpacrud.security.PasswordHash;
-
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-/**
- * FXML Controller class
- *
- * @author capri
- */
 public class RegController implements Initializable {
 
     @FXML
@@ -43,18 +28,13 @@ public class RegController implements Initializable {
     TextField pwd2Field;
     @FXML
     Label message;
-    
+
     private final RegQuery query;
-    
+
     public RegController() {
-
         query = new RegQuery();
-
     }
-    
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

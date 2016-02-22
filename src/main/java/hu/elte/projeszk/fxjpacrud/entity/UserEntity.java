@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hu.elte.projeszk.fxjpacrud.entity;
 
 import javax.persistence.Basic;
@@ -10,11 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-
-/**
- *
- * @author capri
- */
 
 @Entity
 @NamedQueries({
@@ -85,7 +75,6 @@ public class UserEntity extends PersistentEntity {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof UserEntity)) {
             return false;
         }
@@ -105,7 +94,7 @@ public class UserEntity extends PersistentEntity {
 
     @Override
     public Object get(int columnIndex) {
-        switch(columnIndex){
+        switch (columnIndex) {
             case 0:
                 return id;
             case 1:
@@ -121,7 +110,7 @@ public class UserEntity extends PersistentEntity {
 
     @Override
     public void set(int columnIndex, Object value) {
-        switch(columnIndex){
+        switch (columnIndex) {
             case 0:
                 setId((Integer) value);
                 break;
