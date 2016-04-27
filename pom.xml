@@ -101,6 +101,7 @@
                                 <argument>-outfile</argument>
                                 <argument>${project.build.finalName}.jar</argument>
                             </arguments>
+                            <mainClass>hu.elte.projeszk.fxjpacrud.LoginFX</mainClass>
                         </configuration>
                     </execution>
                     <execution>
@@ -113,7 +114,8 @@
                             <commandlineArgs>${runfx.args}</commandlineArgs>
                         </configuration>
                     </execution>
-                </executions>  
+                </executions>
+                
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

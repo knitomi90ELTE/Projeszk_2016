@@ -1,6 +1,7 @@
 package hu.elte.projeszk.fxjpacrud.helper;
 
 import hu.elte.projeszk.fxjpacrud.LoginFX;
+import hu.elte.projeszk.fxjpacrud.entity.UserEntity;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
@@ -31,6 +32,11 @@ public class ChangeContent {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    }
+    
+    public UserEntity displayPopupDialog() {
+        UserEntity ue = new UserEntity();
+        
+        return ue;
     }
 }

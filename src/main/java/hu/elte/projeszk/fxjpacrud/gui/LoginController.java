@@ -37,7 +37,8 @@ public class LoginController implements Initializable {
     }
 
     public void loginAction(ActionEvent event) {
-
+        System.out.println("Login event...");
+        
         if (email.getText().isEmpty()) {
             message.setText("Nem adott meg emailt!");
             return;
@@ -53,6 +54,7 @@ public class LoginController implements Initializable {
                 if (PasswordHash.validatePassword(password.getText(), current.getPassword())) {
                     message.setTextFill(Paint.valueOf("00ff00"));
                     message.setText("Jelszó megfelelő!");
+                    System.out.println("Login successful...");
                     changeToAdminAction();
                 } else {
                     message.setText("Hibás jelszó!");
@@ -64,6 +66,7 @@ public class LoginController implements Initializable {
             message.setText("Email nem létezik!");
         }
         message.setTextFill(Paint.valueOf("ff0000"));
+        System.out.println("Login unsuccessful...");
 
     }
 
