@@ -88,6 +88,7 @@
                             <goal>exec</goal>
                         </goals>
                         <configuration>
+                            <!--mainClass>hu.elte.projeszk.fxjpacrud.LoginFX</mainClass-->
                             <executable>${java.home}/../bin/javafxpackager</executable>
                             <arguments>
                                 <argument>-createjar</argument>
@@ -101,7 +102,7 @@
                                 <argument>-outfile</argument>
                                 <argument>${project.build.finalName}.jar</argument>
                             </arguments>
-                            <mainClass>hu.elte.projeszk.fxjpacrud.LoginFX</mainClass>
+                            
                         </configuration>
                     </execution>
                     <execution>
@@ -110,6 +111,8 @@
                             <goal>exec</goal>                            
                         </goals>
                         <configuration>
+                            <!--mainClass>hu.elte.projeszk.fxjpacrud.LoginFX</mainClass-->
+
                             <executable>${java.home}/bin/java</executable>
                             <commandlineArgs>${runfx.args}</commandlineArgs>
                         </configuration>

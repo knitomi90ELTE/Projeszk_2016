@@ -90,8 +90,6 @@ public class UserEntity extends PersistentEntity {
         return "UserEntity{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
     }
 
-    public static final String[] PROPERTY_NAMES = {"id", "Név", "Email"};
-
     @Override
     public Object get(int columnIndex) {
         switch (columnIndex) {

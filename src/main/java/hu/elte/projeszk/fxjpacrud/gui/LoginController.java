@@ -9,11 +9,17 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 
 public class LoginController implements Initializable {
@@ -24,7 +30,9 @@ public class LoginController implements Initializable {
     private PasswordField password;
     @FXML
     private Label message;
-
+    @FXML
+    private StackPane StackPane;
+    
     private final LoginQuery query;
 
     public LoginController() {
@@ -33,18 +41,26 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        StackPane.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    loginAction(new ActionEvent());
+                    keyEvent.consume();
+                }
+            }
+        });
     }
 
     public void loginAction(ActionEvent event) {
         System.out.println("Login event...");
-        
+        message.setText("Logging in...");
         if (email.getText().isEmpty()) {
-            message.setText("Nem adott meg emailt!");
+            message.setText("Missing email!");
             return;
         }
         if (password.getText().isEmpty()) {
-            message.setText("Nem adott meg jelszót!");
+            message.setText("Missing password!");
             return;
         }
 
@@ -53,21 +69,20 @@ public class LoginController implements Initializable {
             try {
                 if (PasswordHash.validatePassword(password.getText(), current.getPassword())) {
                     message.setTextFill(Paint.valueOf("00ff00"));
-                    message.setText("Jelszó megfelelő!");
                     System.out.println("Login successful...");
                     changeToAdminAction();
+                    return;
                 } else {
-                    message.setText("Hibás jelszó!");
+                    message.setText("Password is incorrect!");
                 }
             } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-                e.printStackTrace();
+
             }
         } else {
-            message.setText("Email nem létezik!");
+            message.setText("Invalid email!");
         }
         message.setTextFill(Paint.valueOf("ff0000"));
         System.out.println("Login unsuccessful...");
-
     }
 
     private void changeToAdminAction() {

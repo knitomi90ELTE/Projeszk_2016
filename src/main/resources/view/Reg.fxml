@@ -8,60 +8,40 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 
-
 <StackPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.elte.projeszk.fxjpacrud.gui.RegController">
     <children>
-        
-        <Button mnemonicParsing="false" onAction="#backToLogin" text="&lt;-Vissza" StackPane.alignment="TOP_LEFT" />
-        
-        <VBox alignment="CENTER" spacing="20" fillWidth="false">
+        <VBox alignment="CENTER" spacing="20" fillWidth="false"   >
             <Label text="Név" alignment="CENTER" >
                 <font>
                     <Font size="14.0" />
                 </font>
             </Label>
-            <TextField fx:id="nameField" prefHeight="30.0" prefWidth="250.0" promptText="Név" alignment="CENTER" maxWidth="250.0" />
-        
+            <TextField fx:id="nameField" prefHeight="30.0" prefWidth="250.0" promptText="Name" alignment="CENTER" maxWidth="250.0" />
             <Label text="Email" alignment="CENTER" >
                 <font>
                     <Font size="14.0" />
                 </font>
             </Label>
             <TextField fx:id="emailField" prefHeight="30.0" prefWidth="250.0" promptText="Email"  alignment="CENTER" maxWidth="250.0" />
-        
-            <Label text="Jelszó" alignment="CENTER" >
+            <Label text="Password" alignment="CENTER" >
                 <font>
                     <Font size="14.0" />
                 </font>
             </Label>
-            <PasswordField fx:id="pwd1Field" prefHeight="30.0" prefWidth="250.0" promptText="Jelszó" alignment="CENTER" maxWidth="250.0"/>
-        
-            <Label text="Jelszó megint" alignment="CENTER">
+            <PasswordField fx:id="pwd1Field" prefHeight="30.0" prefWidth="250.0" promptText="Password" alignment="CENTER" maxWidth="250.0"/>
+            <Label text="Password again" alignment="CENTER">
                 <font>
                     <Font size="14.0" />
                 </font>
             </Label>
-            <PasswordField fx:id="pwd2Field" prefHeight="30.0" prefWidth="250.0" promptText="Jelszó megint" alignment="CENTER" maxWidth="250.0"/>
-        
-            <Button mnemonicParsing="false" onAction="#regAction" prefHeight="25.0" prefWidth="120.0" text="Regisztráció" alignment="CENTER" />
-        
+            <PasswordField fx:id="pwd2Field" prefHeight="30.0" prefWidth="250.0" promptText="Password again" alignment="CENTER" maxWidth="250.0"/>
+            <Button mnemonicParsing="false" onAction="#regAction" prefHeight="25.0" prefWidth="120.0" text="Registration" alignment="CENTER" />
             <Label fx:id="message" prefHeight="30.0" prefWidth="250.0" textAlignment="CENTER" textFill="RED" alignment="CENTER" >
                 <font>
                     <Font size="14.0" />
                 </font>
             </Label>
-        
-        </VBox>  
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        </VBox>
+        <Button mnemonicParsing="false" onAction="#backToLogin" text="&lt;-Back" StackPane.alignment="TOP_LEFT" />
     </children>
 </StackPane>
