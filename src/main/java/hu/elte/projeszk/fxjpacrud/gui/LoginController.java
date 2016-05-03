@@ -3,6 +3,7 @@ package hu.elte.projeszk.fxjpacrud.gui;
 import hu.elte.projeszk.fxjpacrud.LoginFX;
 import hu.elte.projeszk.fxjpacrud.db.LoginQuery;
 import hu.elte.projeszk.fxjpacrud.entity.UserEntity;
+import hu.elte.projeszk.fxjpacrud.helper.FormValidation;
 import hu.elte.projeszk.fxjpacrud.security.PasswordHash;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
@@ -14,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -22,7 +24,8 @@ import javafx.scene.paint.Paint;
 
 /**
  * bejelentkezés vezérlő
- * @author 
+ *
+ * @author
  */
 public class LoginController implements Initializable {
 
@@ -34,7 +37,9 @@ public class LoginController implements Initializable {
     private Label message;
     @FXML
     private StackPane StackPane;
-    
+    @FXML
+    private ProgressIndicator progressIndicator;
+
     private final LoginQuery query;
 
     /**
@@ -59,17 +64,15 @@ public class LoginController implements Initializable {
 
     /**
      * bejelentkezés kezelő
+     *
      * @param event
      */
     public void loginAction(ActionEvent event) {
+
         System.out.println("Login event...");
-        message.setText("Logging in...");
-        if (email.getText().isEmpty()) {
-            message.setText("Missing email!");
-            return;
-        }
-        if (password.getText().isEmpty()) {
-            message.setText("Missing password!");
+        String errors = FormValidation.validateLoginForm(email.getText(), password.getText());
+        if (errors.length() > 0) {
+            message.setText(errors);
             return;
         }
 
@@ -93,7 +96,7 @@ public class LoginController implements Initializable {
         message.setTextFill(Paint.valueOf("ff0000"));
         System.out.println("Login unsuccessful...");
     }
-    
+
     /**
      * admininsztrátor felületre navigál
      */
