@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+/**
+ * felhasználó osztály
+ * @author 
+ */
 @Entity
 @NamedQueries({
     @NamedQuery(name = "UserEntity.findAll", query = "SELECT u FROM UserEntity u"),
@@ -28,13 +32,27 @@ public class UserEntity extends PersistentEntity {
     @Column(name = "password")
     private String password;
 
+    /**
+     * alapértelmezett konstruktor
+     */
     public UserEntity() {
     }
 
+    /**
+     * egyparaméteres konstruktor
+     * @param id
+     */
     public UserEntity(Integer id) {
         this.id = id;
     }
 
+    /**
+     * többparaméteres konstruktor
+     * @param id
+     * @param name
+     * @param email
+     * @param password
+     */
     public UserEntity(Integer id, String name, String email, String password) {
         this.id = id;
         this.name = name;
@@ -42,26 +60,50 @@ public class UserEntity extends PersistentEntity {
         this.password = password;
     }
 
+    /**
+     * felhasználó nevének lekérdezése
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * felhasználó nevének megadása
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /** 
+     * email értékének lekérdezése
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * email értékének megadása
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * jelszó értékének lekérdezése
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * jelszó értékének beállítása
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
@@ -90,6 +132,11 @@ public class UserEntity extends PersistentEntity {
         return "UserEntity{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
     }
 
+    /**
+     * adattag lekérdezés oszlopszám szerint
+     * @param columnIndex
+     * @return
+     */
     @Override
     public Object get(int columnIndex) {
         switch (columnIndex) {
@@ -106,6 +153,11 @@ public class UserEntity extends PersistentEntity {
         }
     }
 
+    /**
+     * adattag beállítása oszlopszám szerint
+     * @param columnIndex
+     * @param value
+     */
     @Override
     public void set(int columnIndex, Object value) {
         switch (columnIndex) {
