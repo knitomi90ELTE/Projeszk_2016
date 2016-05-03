@@ -20,6 +20,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 
+/**
+ * bejelentkezés vezérlő
+ * @author 
+ */
 public class LoginController implements Initializable {
 
     @FXML
@@ -33,6 +37,9 @@ public class LoginController implements Initializable {
     
     private final LoginQuery query;
 
+    /**
+     * konstruktor
+     */
     public LoginController() {
         query = new LoginQuery();
     }
@@ -50,6 +57,10 @@ public class LoginController implements Initializable {
         });
     }
 
+    /**
+     * bejelentkezés kezelő
+     * @param event
+     */
     public void loginAction(ActionEvent event) {
         System.out.println("Login event...");
         message.setText("Logging in...");
@@ -82,11 +93,18 @@ public class LoginController implements Initializable {
         message.setTextFill(Paint.valueOf("ff0000"));
         System.out.println("Login unsuccessful...");
     }
-
+    
+    /**
+     * admininsztrátor felületre navigál
+     */
     private void changeToAdminAction() {
         LoginFX.getInstance().getChangeContent().replaceSceneContent("/view/Admin.fxml");
     }
 
+    /**
+     * regisztráció felületre navigál
+     * @param event
+     */
     public void changeToRegAction(ActionEvent event) {
         LoginFX.getInstance().getChangeContent().replaceSceneContent("/view/Reg.fxml");
     }
