@@ -7,7 +7,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 /**
- * felhasználó osztály
+ * felhasználói entitás osztály
  * @author 
  */
 @Entity
@@ -40,7 +40,7 @@ public class UserEntity extends PersistentEntity {
 
     /**
      * egyparaméteres konstruktor
-     * @param id
+     * @param id, azonosító
      */
     public UserEntity(Integer id) {
         this.id = id;
@@ -48,10 +48,10 @@ public class UserEntity extends PersistentEntity {
 
     /**
      * többparaméteres konstruktor
-     * @param id
-     * @param name
-     * @param email
-     * @param password
+     * @param id, azonosító
+     * @param name, név
+     * @param email, email
+     * @param password, jelszó
      */
     public UserEntity(Integer id, String name, String email, String password) {
         this.id = id;
@@ -62,7 +62,7 @@ public class UserEntity extends PersistentEntity {
 
     /**
      * felhasználó nevének lekérdezése
-     * @return
+     * @return name, névvel tér vissza
      */
     public String getName() {
         return name;
@@ -70,7 +70,7 @@ public class UserEntity extends PersistentEntity {
 
     /**
      * felhasználó nevének megadása
-     * @param name
+     * @param name, név paraméter
      */
     public void setName(String name) {
         this.name = name;
@@ -78,7 +78,7 @@ public class UserEntity extends PersistentEntity {
 
     /** 
      * email értékének lekérdezése
-     * @return
+     * @return email, email cím
      */
     public String getEmail() {
         return email;
@@ -86,7 +86,7 @@ public class UserEntity extends PersistentEntity {
 
     /**
      * email értékének megadása
-     * @param email
+     * @param email, paraméterül adott email cím
      */
     public void setEmail(String email) {
         this.email = email;
@@ -94,7 +94,7 @@ public class UserEntity extends PersistentEntity {
 
     /**
      * jelszó értékének lekérdezése
-     * @return
+     * @return password, felhasználóhoz tartozó jelszó
      */
     public String getPassword() {
         return password;
@@ -102,19 +102,28 @@ public class UserEntity extends PersistentEntity {
 
     /**
      * jelszó értékének beállítása
-     * @param password
+     * @param password, paraméterül jelszó
      */
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
+    /**
+     * heskódot generáló metódus
+     * @return hash, haskóddal tér vissza  
+     */
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
-
+    
+    /**
+     * két UserEntity típusú objektum egyenlőségét vizsgáló metódus
+     * @param object
+     * @return 
+     */
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof UserEntity)) {
@@ -135,7 +144,7 @@ public class UserEntity extends PersistentEntity {
     /**
      * adattag lekérdezés oszlopszám szerint
      * @param columnIndex
-     * @return
+     * @return az adott columnIndex megfelelő adattagját adja vissza
      */
     @Override
     public Object get(int columnIndex) {
@@ -155,8 +164,8 @@ public class UserEntity extends PersistentEntity {
 
     /**
      * adattag beállítása oszlopszám szerint
-     * @param columnIndex
-     * @param value
+     * @param columnIndex, oszlopindex
+     * @param value, az adott oszlop értéke
      */
     @Override
     public void set(int columnIndex, Object value) {

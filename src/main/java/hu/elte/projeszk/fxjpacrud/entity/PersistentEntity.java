@@ -22,7 +22,7 @@ public abstract class PersistentEntity implements Serializable {
 
     /**
      * azonosító érékének lekérdezése
-     * @return
+     * @return id, az azonosító
      */
     public Integer getId() {
         return id;
@@ -30,23 +30,23 @@ public abstract class PersistentEntity implements Serializable {
 
     /**
      * azonosító érékének beállítása
-     * @param id
+     * @param id, az azonosító
      */
     public void setId(Integer id) {
         this.id = id;
     }
 
     /**
-     * 
+     * absztrakt metódus ami a columnIndexedik elemmel tér vissza 
      * @param columnIndex
-     * @return
+     * @return Object, az adott oszlop típusával tér vissza
      */
     public abstract Object get(int columnIndex);
 
     /**
-     * 
+     * absztrakt metódus ami a columnIndexedik elemet frissiti 
      * @param columnIndex
-     * @param value
+     * @param value, frissítő érték
      */
     public abstract void set(int columnIndex, Object value);
 
