@@ -21,12 +21,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 
+/**
+ *
+ * @author Gergő
+ */
 public class AdminController extends TableController<UserEntity> implements Initializable {
 
     @FXML
     private TableControl<UserEntity> tableControl;
     private final GenericDao<UserEntity> userDao = DaoManager.getInstance().getUserDao();
 
+    /**
+     *
+     */
     public AdminController() {
 
     }
@@ -45,6 +52,15 @@ public class AdminController extends TableController<UserEntity> implements Init
         tableControl.reloadFirstPage();
     }
 
+    /**
+     *
+     * @param startIndex
+     * @param filteredColumns
+     * @param sortedColumns
+     * @param sortingOrders
+     * @param maxResult
+     * @return
+     */
     @Override
     public TableData loadData(int startIndex, List<TableCriteria> filteredColumns, List<String> sortedColumns, List<TableColumn.SortType> sortingOrders, int maxResult) {
         System.out.println("Loading data...");
@@ -52,6 +68,10 @@ public class AdminController extends TableController<UserEntity> implements Init
         return new TableData<>(listUser, false, listUser.size());
     }
 
+    /**
+     *
+     * @param records
+     */
     @Override
     public void delete(List<UserEntity> records) {
         System.out.println("delete " + records.toString());
@@ -59,14 +79,21 @@ public class AdminController extends TableController<UserEntity> implements Init
             userDao.delete(userDao.findById(record.getId()));
         }
     }
-    
-    
-    
+
+    /**
+     *
+     * @param item
+     * @return
+     */
     @Override
     public boolean isRecordEditable(UserEntity item) {
         return false;
     }
 
+    /**
+     *
+     * @param previousMode
+     */
     @Override
     public void postSave(TableControl.Mode previousMode) {
         System.out.println("postSave");
@@ -74,6 +101,13 @@ public class AdminController extends TableController<UserEntity> implements Init
         tableControl.refresh();
     }
 
+    /**
+     *
+     * @param title
+     * @param maxResult
+     * @param tblView
+     * @param lstCriteria
+     */
     @Override
     public void exportToExcel(String title, int maxResult, TableControl<UserEntity> tblView, List<TableCriteria> lstCriteria) {
         System.out.println("exportToExcel");
@@ -85,22 +119,42 @@ public class AdminController extends TableController<UserEntity> implements Init
         });
     }
 
+    /**
+     *
+     * @param table
+     * @return
+     */
     @Override
     public boolean canDelete(TableControl<UserEntity> table) {
         return true;
     }
 
+    /**
+     *
+     * @param selectedRecord
+     * @return
+     */
     @Override
     public boolean canEdit(UserEntity selectedRecord) {
         return false;
     }
 
+    /**
+     *
+     * @param newRecord
+     * @return
+     */
     @Override
     public UserEntity preInsert(UserEntity newRecord) {
         System.out.println("preInsert " + newRecord.toString());
         return LoginFX.getInstance().getChangeContent().displayPopupDialog();
     }
 
+    /**
+     *
+     * @param records
+     * @return
+     */
     @Override
     public List<UserEntity> update(List<UserEntity> records) {
         System.out.println("update " + records.toString());
@@ -114,6 +168,11 @@ public class AdminController extends TableController<UserEntity> implements Init
         return records;
     }
 
+    /**
+     *
+     * @param newRecords
+     * @return
+     */
     @Override
     public List<UserEntity> insert(List<UserEntity> newRecords) {
         System.out.println("insert " + newRecords.toString());
