@@ -40,7 +40,7 @@ public interface GenericDao<T extends PersistentEntity> {
     public List<T> findAll();
 
     /**
-     * Azonosító alpján keresés.
+     * Azonosító alapján keresés.
      * 
      * @param id az entitás egyedi azonosítója
      * @return megfelelő azonosítóval rendelkező entitás
