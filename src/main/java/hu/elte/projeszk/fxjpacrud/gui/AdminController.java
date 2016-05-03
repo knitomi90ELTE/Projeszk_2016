@@ -60,11 +60,9 @@ public class AdminController extends TableController<UserEntity> implements Init
         }
     }
     
-    
-    
     @Override
     public boolean isRecordEditable(UserEntity item) {
-        return false;
+        return true;
     }
 
     @Override
@@ -92,7 +90,7 @@ public class AdminController extends TableController<UserEntity> implements Init
 
     @Override
     public boolean canEdit(UserEntity selectedRecord) {
-        return false;
+        return true;
     }
 
     @Override
