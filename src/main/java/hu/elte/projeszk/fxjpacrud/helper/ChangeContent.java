@@ -12,16 +12,29 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * tartalmom változtató osztály
+ * @author
+ */
 public class ChangeContent {
 
     private final LoginFX instance;
     private final Stage stage;
 
+    /**
+     * konstruktor
+     * @param instance
+     * @param stage
+     */
     public ChangeContent(LoginFX instance, Stage stage) {
         this.instance = instance;
         this.stage = stage;
     }
 
+    /**
+     * felület váltó
+     * @param fxml
+     */
     public void replaceSceneContent(String fxml) {
         try {
             Parent page = (Parent) FXMLLoader.load(instance.getClass().getResource(fxml), null, new JavaFXBuilderFactory());
@@ -38,6 +51,10 @@ public class ChangeContent {
         }
     }
 
+    /**
+     * új felhasználó felvételi felugró felület értékkel tér vissza
+     * @return ue
+     */
     public UserEntity displayPopupDialog() {
         UserEntity ue = null;
         try {

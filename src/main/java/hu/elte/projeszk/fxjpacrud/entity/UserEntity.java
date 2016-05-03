@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
+/**
+ * felhasználói entitás osztály
+ * @author 
+ */
 @Entity
 @NamedQueries({
     @NamedQuery(name = "UserEntity.findAll", query = "SELECT u FROM UserEntity u"),
@@ -28,13 +32,27 @@ public class UserEntity extends PersistentEntity {
     @Column(name = "password")
     private String password;
 
+    /**
+     * alapértelmezett konstruktor
+     */
     public UserEntity() {
     }
 
+    /**
+     * egyparaméteres konstruktor
+     * @param id, azonosító
+     */
     public UserEntity(Integer id) {
         this.id = id;
     }
 
+    /**
+     * többparaméteres konstruktor
+     * @param id, azonosító
+     * @param name, név
+     * @param email, email
+     * @param password, jelszó
+     */
     public UserEntity(Integer id, String name, String email, String password) {
         this.id = id;
         this.name = name;
@@ -42,37 +60,70 @@ public class UserEntity extends PersistentEntity {
         this.password = password;
     }
 
+    /**
+     * felhasználó nevének lekérdezése
+     * @return name, névvel tér vissza
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * felhasználó nevének megadása
+     * @param name, név paraméter
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /** 
+     * email értékének lekérdezése
+     * @return email, email cím
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * email értékének megadása
+     * @param email, paraméterül adott email cím
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * jelszó értékének lekérdezése
+     * @return password, felhasználóhoz tartozó jelszó
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * jelszó értékének beállítása
+     * @param password, paraméterül jelszó
+     */
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
+    /**
+     * heskódot generáló metódus
+     * @return hash, haskóddal tér vissza  
+     */
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
-
+    
+    /**
+     * két UserEntity típusú objektum egyenlőségét vizsgáló metódus
+     * @param object
+     * @return 
+     */
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof UserEntity)) {
@@ -90,6 +141,11 @@ public class UserEntity extends PersistentEntity {
         return "UserEntity{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
     }
 
+    /**
+     * adattag lekérdezés oszlopszám szerint
+     * @param columnIndex
+     * @return az adott columnIndex megfelelő adattagját adja vissza
+     */
     @Override
     public Object get(int columnIndex) {
         switch (columnIndex) {
@@ -106,6 +162,11 @@ public class UserEntity extends PersistentEntity {
         }
     }
 
+    /**
+     * adattag beállítása oszlopszám szerint
+     * @param columnIndex, oszlopindex
+     * @param value, az adott oszlop értéke
+     */
     @Override
     public void set(int columnIndex, Object value) {
         switch (columnIndex) {
