@@ -40,5 +40,19 @@ public class FormValidation {
         }
         return result;
     }
+    
+    public static String validateLoginForm(String email, String password) {
+        String errorMessage = "";
+        if (email == null || email.length() == 0) {
+            errorMessage += "Missing data: email!\n";
+        }
+        if(!isValidEmailAddress(email)){
+            errorMessage += "Invalid email!\n";
+        }
+        if (password == null || password.length() == 0) {
+            errorMessage += "Missing data: password!\n";
+        }
+        return errorMessage;
+    }
 
 }

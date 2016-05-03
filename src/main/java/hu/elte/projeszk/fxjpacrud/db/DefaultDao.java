@@ -10,7 +10,7 @@ import javax.persistence.criteria.CriteriaQuery;
 
 public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
 
-    private final boolean isRemote = true;
+    private final boolean isRemote = false;
     protected Class<T> CLASS;
     protected EntityManagerFactory EMF;
 
