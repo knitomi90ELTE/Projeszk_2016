@@ -112,7 +112,6 @@
                         </goals>
                         <configuration>
                             <!--mainClass>hu.elte.projeszk.fxjpacrud.LoginFX</mainClass-->
-
                             <executable>${java.home}/bin/java</executable>
                             <commandlineArgs>${runfx.args}</commandlineArgs>
                         </configuration>
