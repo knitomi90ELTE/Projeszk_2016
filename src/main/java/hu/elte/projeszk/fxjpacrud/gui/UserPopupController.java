@@ -12,6 +12,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * felhasználó hozzáadó felület
+ * @author
+ */
 public class UserPopupController implements Initializable {
 
     @FXML
@@ -30,6 +34,9 @@ public class UserPopupController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     * felhasználó adatainak ellenőrzése adminisztrátori felvételkor
+     */
     @FXML
     public void handleOk() {
         String errors = FormValidation.validateForm(nameField.getText(), emailField.getText(), pwdField1.getText(), pwdField2.getText());
@@ -49,15 +56,26 @@ public class UserPopupController implements Initializable {
         }
     }
 
+    /**
+     * kezeli a felvétel megszakítást
+     */
     @FXML
     public void handleCancel() {
         dialogStage.close();
     }
 
+    /**
+     * állapot értékének beállítása
+     * @param dialogStage
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
+    /**
+     *  aktuális felhasználó lekérdezése
+     * @return
+     */
     public UserEntity getCurrentUser() {
         return currentUser;
     }

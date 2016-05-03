@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="StackPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.elte.projeszk.fxjpacrud.gui.LoginController">
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="StackPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" fx:controller="hu.elte.projeszk.fxjpacrud.gui.LoginController">
     <children>
         <VBox alignment="CENTER" spacing="20" >
             <Label text="Email" alignment="CENTER" >
@@ -25,7 +25,7 @@
             <PasswordField fx:id="password" prefHeight="30.0" prefWidth="250.0" promptText="Password" alignment="CENTER" maxWidth="250.0" />
             <Button mnemonicParsing="false" onAction="#loginAction" prefHeight="30.0" prefWidth="100.0" text="Login" />
             <Button mnemonicParsing="false" onAction="#changeToRegAction" prefHeight="30.0" prefWidth="100.0" text="Registration" />
-            <Label fx:id="message" prefHeight="30.0" prefWidth="250.0" textAlignment="CENTER" textFill="RED" alignment="CENTER" text="" >
+            <Label fx:id="message" prefHeight="60.0" prefWidth="250.0" textAlignment="CENTER" textFill="RED" alignment="CENTER" text="" >
                 <font>
                     <Font size="14.0" />
                 </font>

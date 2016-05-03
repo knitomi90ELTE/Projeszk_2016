@@ -15,6 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * regisztráció vezérlő
+ * @author
+ */
 public class RegController implements Initializable {
 
     @FXML
@@ -30,6 +34,9 @@ public class RegController implements Initializable {
 
     private final RegQuery query;
 
+    /**
+     * konstruktor
+     */
     public RegController() {
         query = new RegQuery();
     }
@@ -38,10 +45,18 @@ public class RegController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     * a bejelentkező felületre navigál
+     * @param event
+     */
     public void backToLogin(ActionEvent event) {
         LoginFX.getInstance().getChangeContent().replaceSceneContent("/view/Login.fxml");
     }
 
+    /**
+     * regisztráció kezelő
+     * @param event
+     */
     public void regAction(ActionEvent event) {
         String errors = FormValidation.validateForm(nameField.getText(), emailField.getText(), pwd1Field.getText(), pwd2Field.getText());
         if (errors.length() > 0) {
