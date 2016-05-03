@@ -5,8 +5,9 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- *
- * @author 
+ * Az alkalmazás fő osztálya.
+ * 
+ * @author Gergő
  */
 public class LoginFX extends Application {
 
@@ -14,23 +15,25 @@ public class LoginFX extends Application {
     private ChangeContent changeContent;
 
     /**
-     * 
+     * A konsruktor beállítja az osztályszintű példányt az objektumra.
      */
     public LoginFX() {
         instance = this;
     }
 
     /**
-     *
-     * @return
+     * Visszatér az osztály pédányával-
+     * 
+     * @return instance osztály példánya
      */
     public static LoginFX getInstance() {
         return instance;
     }
 
     /**
-     *
-     * @return changeContent 
+     * Visszatér az aktuálisan megjelő tartalomra való referenciával.
+     * 
+     * @return changeContent aktuálisan megjelő tartalom
      */
     public ChangeContent getChangeContent() {
         return changeContent;
@@ -44,7 +47,7 @@ public class LoginFX extends Application {
     }
 
     /**
-     * 
+     * Az alkalmazás fő függvénye.
      * 
      * @param args parancssori argumentumok
      */
