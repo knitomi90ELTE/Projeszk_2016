@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 /**
  * Az alkalmazás fő osztálya.
  * 
- * @author Gergő
+ * @author Gergő, Zoltán
  */
 public class LoginFX extends Application {
 

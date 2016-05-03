@@ -9,27 +9,31 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 /**
- *
- * @author Gergő
- * @param <T>
+ * Megvalósjtja az általános DAO-t (Data Access Object).
+ * 
+ * @author Gergő, Zoltán
+ * @param <T> az oszály generikus paramétere amely a PersistentEntity
+ *            osztályból származik.
  */
 public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
 
     private final boolean isRemote = true;
 
     /**
-     *
+     * Az entitás osztályának tárolása.
      */
     protected Class<T> CLASS;
 
     /**
-     *
+     * Az entitásokat létrehozó EntityManagerFactory.
      */
     protected EntityManagerFactory EMF;
 
     /**
-     *
-     * @param CLASS
+     * Beállítja az entitás osztályát.
+     * Attól függően, hogy távoli vagy lokális host-ot használunk, EntityManagerFactory-t is.
+     * 
+     * @param CLASS entitás osztálya
      */
     public DefaultDao(Class<T> CLASS) {
         this.CLASS = CLASS;
@@ -37,8 +41,9 @@ public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
     }
 
     /**
-     *
-     * @param entity
+     * Új entitiás felvétele az adatbázisba.
+     * 
+     * @param entity létrehozandó új entitás
      */
     @Override
     public void create(T entity) {
@@ -49,8 +54,9 @@ public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
     }
 
     /**
-     *
-     * @param entity
+     * Entitás frissítése.
+     * 
+     * @param entity frissítendő entitás
      */
     @Override
     public void update(T entity) {
@@ -61,8 +67,9 @@ public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
     }
 
     /**
-     *
-     * @param entity
+     * Entitás törlése az adatbázisból.
+     * 
+     * @param entity törlendő entitás
      */
     @Override
     public void delete(T entity) {
@@ -74,8 +81,8 @@ public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
     }
 
     /**
-     *
-     * @return
+     * Megkeresi az adatbázisban szereplő összes entitás.
+     * @return összes entitás
      */
     @Override
     public List<T> findAll() {
@@ -83,9 +90,10 @@ public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
     }
 
     /**
-     *
-     * @param id 
-     * @return
+     * Megfelelő azonosítójú elem keresése.
+     * 
+     * @param id keresett azonosítójú entitás
+     * @return keresett elem
      */
     @Override
     public T findById(Integer id) {
@@ -93,19 +101,21 @@ public class DefaultDao<T extends PersistentEntity> implements GenericDao<T> {
     }
 
     /**
-     *
-     * @return
+     * Visszatér a létrehozott entitás kezlővel.
+     * 
+     * @return az entitás kezelővel
      */
     protected EntityManager getEntityManager() {
         return EMF.createEntityManager();
     }
 
     /**
-     *
-     * @param all
-     * @param firstResult
-     * @param maxResult
-     * @return
+     * Az összes adat lekérdezése az adatbázisból, egy intervallum között.
+     * 
+     * @param all visszatérés az összes elemmel
+     * @param firstResult mettől listázza az eredményt
+     * @param maxResult meddig listázza az eredményt
+     * @return a keresett listával
      */
     protected List<T> findEntities(boolean all, int firstResult, int maxResult) {
         EntityManager entityManager = getEntityManager();

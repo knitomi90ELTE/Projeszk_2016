@@ -6,21 +6,23 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
 /**
+ * A bejelentkezést megvalósító osztály.
  *
  * @author Gergő
  */
 public class LoginQuery extends DefaultDao<UserEntity> {
 
     /**
-     *
+     * DAO létrehozása, az ősosztály konstruktorával
      */
     public LoginQuery() {
         super(UserEntity.class);
     }
 
     /**
+     * Visszatér a felhasználók listájával.
      *
-     * @return
+     * @return a felhasználók listájával
      */
     public List<UserEntity> listLogin() {
         EntityManager entityManager = getEntityManager();
@@ -28,9 +30,10 @@ public class LoginQuery extends DefaultDao<UserEntity> {
     }
 
     /**
+     * Felhasználó megkeresése email cím alapján.
      *
-     * @param email
-     * @return
+     * @param email kertesett email
+     * @return a felhasználó entitással
      */
     public UserEntity findUser(String email) {
         try {

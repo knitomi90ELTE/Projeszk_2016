@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Interface amely az alapvető adatbázis műveletek deklarációi.
  * 
- * @author Gergő
+ * @author Gergő, Zoltán
  * @param <T>
  */
 public interface GenericDao<T extends PersistentEntity> {
@@ -40,7 +40,7 @@ public interface GenericDao<T extends PersistentEntity> {
     public List<T> findAll();
 
     /**
-     * Azonosító alpján keresés.
+     * Azonosító alapján keresés.
      * 
      * @param id az entitás egyedi azonosítója
      * @return megfelelő azonosítóval rendelkező entitás
